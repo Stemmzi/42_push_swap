@@ -1,2 +1,2 @@
 # 42_push_swap
-My solution for the push swap project from 42 school.
+This is the current project I am working on in 42 school.
