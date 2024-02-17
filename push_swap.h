@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:32:04 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/14 00:45:20 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/02/17 21:37:56 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	nodeadd_front(t_list **lst, t_list *new);
 void	nodeadd_back(t_list **lst, t_list *new);
 
 // Input checker
-int	is_numeric(int argc, char *argv[]);
-int	is_int(int argc, char *argv[]);
-int	is_unique(int argc, char *argv[]);
-int	is_arg_valid(int argc, char *argv[]);
+int		is_numeric(int argc, char *argv[], int startpos);
+int		is_int(int argc, char *argv[], int startpos);
+int		is_unique(int argc, char *argv[], int startpos);
+int		is_arg_valid(int argc, char *argv[]);
 
 #endif

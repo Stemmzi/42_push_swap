@@ -6,18 +6,16 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:26:41 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/14 00:45:15 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/02/17 21:48:59 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_numeric(int argc, char *argv[])
+int	is_numeric(int argc, char *argv[], int count)
 {
-	int		count;
 	int		c;
 
-	count = 1;
 	c = 0;
 	while (count < argc)
 	{
@@ -33,7 +31,7 @@ int	is_numeric(int argc, char *argv[])
 	return (1);
 }
 
-static int	has_sign (char *str)
+static int	has_sign(char *str)
 {
 	int	len;
 
@@ -61,11 +59,8 @@ static int	has_sign (char *str)
 	return (1);
 }
 
-int	is_int(int argc, char *argv[])
+int	is_int(int argc, char *argv[], int count)
 {
-	int	count;
-
-	count = 1;
 	while (count < argc)
 	{
 		if (argv[count][0] == '-' || argv[count][0] == '+')
@@ -77,48 +72,69 @@ int	is_int(int argc, char *argv[])
 		else if (ft_strlen(argv[count]) > 10)
 			return (0);
 		else if (ft_strlen(argv[count]) == 10)
-			{
-				if (ft_strcmp(argv[count], "2147483647") > 0)
-					return (0);
-				count++;
-			}
+		{
+			if (ft_strcmp(argv[count], "2147483647") > 0)
+				return (0);
+			count++;
+		}
 		else
 			count++;
 	}
 	return (1);
 }
 
-int	is_unique(int argc, char *argv[])
+int	is_unique(int argc, char *argv[], int count)
 {
-    int	count;
 	int	j;
+	int	countsign;
+	int	jsign;
 
-	count = 1;
-    while (count < argc - 1)
+	while (count < argc - 1)
 	{
-        j = count + 1;
-        while (j < argc)
+		j = count + 1;
+		while (j < argc)
 		{
-            if (strcmp(argv[count], argv[j]) == 0)
-                return (0);
-            j++;
-        }
-        count++;
-    }
-    return (1);
+			countsign = (argv[count][0] == '-' || argv[count][0] == '+');
+			jsign = (argv[j][0] == '-' || argv[j][0] == '+');
+			if (countsign || jsign)
+			{
+				if (ft_atoi(argv[count]) == ft_atoi(argv[j]))
+					return (0);
+			}
+			else if (ft_strcmp(argv[count], argv[j]) == 0)
+				return (0);
+			j++;
+		}
+		count++;
+	}
+	return (1);
 }
 
 int	is_arg_valid(int argc, char *argv[])
 {
-	printf("->1\n");
-	if (!is_numeric(argc, argv))
+	char	**args;
+	int		startpos;
+	int		count;
+
+	startpos = 1;
+	count = 0;
+	if (argc < 2)
 		return (0);
-	printf("->2\n");
-	if (!is_int(argc, argv))
+	if (argc == 2)
+	{
+		args = ft_split(argv[1], ' ');
+		while (args[count])
+			count++;
+		argc = count;
+		startpos = 0;
+	}
+	else
+		args = argv;
+	if (!is_numeric(argc, args, startpos))
 		return (0);
-	printf("->3\n");
-	if (!is_unique(argc, argv))
+	if (!is_int(argc, args, startpos))
 		return (0);
-	printf("->4\n");
+	if (!is_unique(argc, args, startpos))
+		return (0);
 	return (1);
 }

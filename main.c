@@ -6,13 +6,13 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 21:10:38 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/14 00:46:30 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/02/17 21:38:18 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	printf("%d\n", is_arg_valid(argc, argv));
 	return (0);
