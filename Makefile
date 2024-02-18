@@ -1,5 +1,5 @@
 NAME = push_swap
-SRCS = main.c lst_utils.c pars_utils.c
+SRCS = main.c lst_utils.c pars_utils.c stack_initialise.c free.c
 OBJ = $(SRCS:.c=.o)
 LIBFT = libft
 LIBFTSRCS = $(addprefix $(LIBFT)/, ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
