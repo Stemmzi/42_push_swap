@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:24:24 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/13 23:50:29 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/02/18 22:14:41 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <ctype.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -55,5 +56,20 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 int		ft_strcmp(const char *s1, const char *s2);
+
+typedef struct s_flag
+{
+	int	i_flag;
+}	t_flag;
+
+int		ft_printf(const char *ptr, ...);
+int		ft_print_char_bonus(int c);
+int		ft_print_string_bonus(char *str);
+int		ft_print_vptr_bonus(unsigned long n);
+int		ft_print_hexa_bonus(unsigned long n, int flag);
+char	*ft_hexa_bonus(unsigned long n, int flag);
+int		ft_print_nbr_bonus(int i);
+int		ft_print_unsigned_bonus(unsigned int u);
+int		ft_flags_bonus(va_list args, char flag, t_flag *s1, const char *ptr);
 
 #endif
