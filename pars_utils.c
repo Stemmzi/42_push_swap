@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:26:41 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/17 21:48:59 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/02/18 22:20:35 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	is_unique(int argc, char *argv[], int count)
 	return (1);
 }
 
-int	is_arg_valid(int argc, char *argv[])
+void	is_arg_valid(int argc, char *argv[])
 {
 	char	**args;
 	int		startpos;
@@ -119,7 +119,7 @@ int	is_arg_valid(int argc, char *argv[])
 	startpos = 1;
 	count = 0;
 	if (argc < 2)
-		return (0);
+		ft_error("Error");
 	if (argc == 2)
 	{
 		args = ft_split(argv[1], ' ');
@@ -131,10 +131,9 @@ int	is_arg_valid(int argc, char *argv[])
 	else
 		args = argv;
 	if (!is_numeric(argc, args, startpos))
-		return (0);
+		ft_error("Error");
 	if (!is_int(argc, args, startpos))
-		return (0);
+		ft_error("Error");
 	if (!is_unique(argc, args, startpos))
-		return (0);
-	return (1);
+		ft_error("Error");
 }

@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:32:04 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/17 21:37:56 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/02/18 22:21:05 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ void	nodeadd_back(t_list **lst, t_list *new);
 int		is_numeric(int argc, char *argv[], int startpos);
 int		is_int(int argc, char *argv[], int startpos);
 int		is_unique(int argc, char *argv[], int startpos);
-int		is_arg_valid(int argc, char *argv[]);
+void	is_arg_valid(int argc, char *argv[]);
+
+// Stack creation
+int		create_stacks(t_list **stack_a, int argc, char *argv[]);
+
+// Free and error
+void	free_stack(t_list **stack);
+void	ft_error(char *str);
 
 #endif
