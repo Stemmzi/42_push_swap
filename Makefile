@@ -1,6 +1,6 @@
 NAME = push_swap
 SRCS = main.c lst_utils.c pars_utils.c stack_initialise.c free.c op_push.c op_revrotate.c \
-		op_rotate.c op_swap.c
+		op_rotate.c op_swap.c sort_stacks.c
 OBJ = $(SRCS:.c=.o)
 LIBFT = libft
 LIBFTSRCS = $(addprefix $(LIBFT)/, ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
@@ -13,7 +13,7 @@ LIBFTSRCS = $(addprefix $(LIBFT)/, ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.
 		ft_printf_bonus.c)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-ARG = +2147483647 -2147483648 -1 0 1 abc
+ARG = 
 
 all: $(NAME)
 

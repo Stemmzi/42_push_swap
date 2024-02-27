@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:32:04 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/27 17:55:21 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/02/27 18:14:24 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	push(t_list **stack_1, t_list **stack_2);
 void	push_a(t_list **stack_a, t_list **stack_b);
 void	push_b(t_list **stack_a, t_list **stack_b);
 
-// Rotate oeprations
+// Rotate operations
 void	rotate(t_list **stack);
 void	rotate_a(t_list **stack_a);
 void	rotate_b(t_list **stack_b);
@@ -65,5 +65,12 @@ void	revrotate(t_list **stack);
 void	revrotate_a(t_list **stack_a);
 void	revrotate_b(t_list **stack_b);
 void	revrotate_rrr(t_list **stack_a, t_list **stack_b);
+
+// Sort functions
+void	sort_stacks(t_list **stack_a, t_list **stack_b);
+void	sort_three(t_list **stack_a);
+void	sort_four(t_list **stack_a, t_list **stack_b);
+void	sort_five(t_list **stack_a, t_list **stack_b);
+void	sort_big(t_list **stack_a, t_list **stack_b);
 
 #endif
