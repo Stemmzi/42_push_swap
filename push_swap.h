@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:32:04 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/26 20:58:17 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/02/27 17:55:21 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ typedef struct s_list
 
 // Node utils
 t_list	*nodenew(int arg);
-void	nodeadd_front(t_list **lst, t_list *new);
 void	nodeadd_back(t_list **lst, t_list *new);
+t_list	*nodelast(t_list *lst);
+int		lstsize(t_list *lst);
 
 // Input checker
 int		is_numeric(int argc, char *argv[], int startpos);
@@ -36,6 +37,7 @@ void	is_arg_valid(int argc, char *argv[]);
 
 // Stack creation
 int		create_stacks(t_list **stack_a, int argc, char *argv[]);
+int		is_sorted(t_list **stack);
 
 // Free and error
 void	free_stack(t_list **stack);

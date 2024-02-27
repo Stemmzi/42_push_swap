@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 21:08:59 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/05 19:05:36 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/02/27 17:55:06 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,6 @@ t_list	*nodenew(int arg)
 	return (new);
 }
 
-void	nodeadd_front(t_list **lst, t_list *new)
-{
-	new->next = *lst;
-	*lst = new;
-}
-
 void	nodeadd_back(t_list **lst, t_list *new)
 {
 	t_list	*temp;
@@ -43,4 +37,26 @@ void	nodeadd_back(t_list **lst, t_list *new)
 			temp = temp->next;
 		temp->next = new;
 	}
+}
+
+t_list	*nodelast(t_list *lst)
+{
+	if (lst == NULL)
+		return (lst);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
+}
+
+int	lstsize(t_list *lst)
+{
+	int	len;
+
+	len = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		len++;
+	}
+	return (len);
 }
