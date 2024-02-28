@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 22:14:55 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/28 21:01:32 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/02/28 23:52:23 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,15 @@ void	index_stack(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-static int price_a(t_list **stack_a, int value)
+static int	price_a(t_list **stack_a, int value)
 {
 	t_list	*head;
 	t_list	*prev;
 	int		count;
-	int		len;
 
 	head = *stack_a;
 	prev = nodelast(*stack_a);
 	count = 0;
-	len = get_list_len(stack_a);
-
 	while (head != NULL)
 	{
 		if (value < head->value && value > prev->value)
@@ -81,16 +78,10 @@ void	price_stack(t_list **stack_a, t_list **stack_b)
 	{
 		count = 0;
 		len = get_list_len(stack_b);
-		if (len % 2 != 0)
-			len += 1;
-		len /= 2;
-		if (pos->index <= len)
+		if (pos->index <= len / 2)
 			count = (pos->index - 1);
-		else if (pos->index > len)
-		{
-			len = get_list_len(stack_b);
+		else if (pos->index > len / 2)
 			count = len - pos->index + 1;
-		}
 		count += price_a(stack_a, pos->value);
 		pos->price = count;
 		pos = pos->next;
@@ -103,10 +94,7 @@ void	sort_element(t_list **stack_a, t_list **stack_b, int index)
 	int	a;
 	int	value;
 
-	len = get_list_len(stack_b);
-	if (len % 2 != 0)
-		len += 1;
-	len /= 2;
+	len = get_list_len(stack_b) / 2;
 	while ((*stack_b)->index != index)
 	{
 		if (index < len)
