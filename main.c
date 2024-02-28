@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 21:10:38 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/18 22:19:56 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/02/28 21:07:43 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	main(int argc, char *argv[])
 {
 	t_list	**stack_a;
 	t_list	**stack_b;
-	t_list	*temp;
 
 	stack_a = (t_list **)malloc(sizeof(t_list *));
 	stack_b = (t_list **)malloc(sizeof(t_list *));
@@ -24,12 +23,9 @@ int	main(int argc, char *argv[])
 	*stack_b = NULL;
 	is_arg_valid(argc, argv);
 	create_stacks(stack_a, argc, argv);
-	temp = *stack_a;
-	while (temp != NULL)
-	{
-		printf("%d\n", temp->value);
-		temp = temp->next;
-	}
+	if (!is_sorted(stack_a))
+		sort_stacks(stack_a, stack_b);
+	show_stacks(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);

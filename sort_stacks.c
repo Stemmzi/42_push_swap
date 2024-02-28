@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 22:02:37 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/27 18:13:05 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/02/28 21:09:34 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,24 @@ void	sort_five(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-//TODO
-// void	sort_big(t_list **stack_a, t_list **stack_b)
-// {
+void	sort_big(t_list **stack_a, t_list **stack_b)
+{
+	int		median;
 
-// }
+	median = get_median(stack_a);
+	push_b(stack_a, stack_b);
+	while ((*stack_a)->next->next->next != NULL)
+	{
+		push_b(stack_a, stack_b);
+		if ((*stack_b)->value > median)
+			rotate_b(stack_b);
+	}
+	sort_three(stack_a);
+	while (*stack_b != NULL)
+	{
+		price_stack(stack_a, stack_b);
+		sort_element(stack_a, stack_b, get_smallest_price(stack_b));
+	}
+	while (!is_sorted(stack_a))
+		rotate_a(stack_a);
+}
