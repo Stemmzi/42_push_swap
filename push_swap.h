@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:32:04 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/28 23:59:00 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/08 17:41:23 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	swap_b(t_list **stack_b);
 void	swap_ss(t_list **stack_a, t_list **stack_b);
 
 // Push operations
-void	push(t_list **stack_1, t_list **stack_2);
+void	push(t_list **stack_a, t_list **stack_b);
 void	push_a(t_list **stack_a, t_list **stack_b);
 void	push_b(t_list **stack_a, t_list **stack_b);
 

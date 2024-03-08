@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 20:43:05 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/21 00:15:02 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/08 17:42:42 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,12 @@ void	rotate(t_list **stack)
 
 	temp = *stack;
 	next = temp->next;
-	nodeadd_back(stack, temp);
-	temp->next = NULL;
-	*stack = next;
+	if (temp->next != NULL)
+	{
+		nodeadd_back(stack, temp);
+		temp->next = NULL;
+		*stack = next;
+	}
 }
 
 void	rotate_a(t_list **stack_a)

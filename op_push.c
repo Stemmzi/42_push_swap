@@ -6,22 +6,22 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 20:03:24 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/21 00:15:53 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/08 17:41:47 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_list **stack_1, t_list **stack_2)
+void	push(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*head;
 	t_list	*next;
 
-	head = *stack_2;
+	head = *stack_b;
 	next = head->next;
-	*stack_2 = next;
-	head->next = *stack_1;
-	*stack_1 = head;
+	*stack_b = next;
+	head->next = *stack_a;
+	*stack_a = head;
 }
 
 void	push_a(t_list **stack_a, t_list **stack_b)

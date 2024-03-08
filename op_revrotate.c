@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 21:56:47 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/21 22:01:39 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/08 17:42:14 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,14 @@ void	revrotate(t_list **stack)
 
 	head = *stack;
 	last = nodelast(head);
-	while (head && head->next && head->next->next != NULL)
-		head = head->next;
-	last->next = *stack;
-	*stack = last;
-	head->next = NULL;
+	if (head->next != NULL)
+	{
+		while (head && head->next && head->next->next != NULL)
+			head = head->next;
+		last->next = *stack;
+		*stack = last;
+		head->next = NULL;
+	}
 }
 
 void	revrotate_a(t_list **stack_a)
