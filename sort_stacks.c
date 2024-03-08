@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 22:02:37 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/03/08 17:54:40 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/08 17:57:29 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	sort_three(t_list **stack_a)
 void	sort_big(t_list **stack_a, t_list **stack_b)
 {
 	int	median;
-	
+
 	median = get_median(stack_a);
 	while ((*stack_a)->next->next->next != NULL)
 	{
