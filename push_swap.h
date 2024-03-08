@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:32:04 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/03/08 17:50:08 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/08 17:53:58 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ typedef struct s_list
 	struct s_list	*next;
 	int				value;
 	int				index;
-	int				price;
+	int				r_a;
+	int				r_b;
+	int				r_both;
+	int				target_pos;
 }	t_list;
 
 // Node utils
@@ -72,9 +75,8 @@ void	revrotate_rrr(t_list **stack_a, t_list **stack_b);
 // Sort functions
 void	sort_stacks(t_list **stack_a, t_list **stack_b);
 void	sort_three(t_list **stack_a);
-void	sort_four(t_list **stack_a, t_list **stack_b);
-void	sort_five(t_list **stack_a, t_list **stack_b);
 void	sort_big(t_list **stack_a, t_list **stack_b);
+void	sort_one_element(t_list **stack_a, t_list **stack_b, int index);
 
 // Sort utils getter
 int		get_list_len(t_list **stack);
@@ -85,8 +87,13 @@ int		get_cheapest_element(t_list **stack_b);
 // Sort utils setter
 void	price_stacks(t_list **stack_a, t_list **stack_b);
 void	set_target_pos(t_list **stack_a, t_list *pos);
-void	sort_one_element(t_list **stack_a, t_list **stack_b, int index);
 void	index_stacks(t_list **stack_a, t_list **stack_b);
+
+// Pricing functions
+void	set_all_null(t_list **stack_b);
+void	set_r_a(t_list **stack_a, t_list **stack_b);
+void	set_r_b(t_list **stack_b);
+void	set_r_both(t_list **stack_b);
 
 //Sort utils
 int		ft_abs(int a);

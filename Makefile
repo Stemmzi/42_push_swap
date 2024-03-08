@@ -1,6 +1,6 @@
 NAME = push_swap
-SRCS = main.c lst_utils.c pars_utils.c stack_initialise.c free.c op_push.c op_revrotate.c \
-		op_rotate.c op_swap.c sort_stacks.c sort_utils.c sort_utils2.c
+SRCS = main.c lst_utils.c pars_utils.c stack_initialise.c free.c op_swap.c op_push.c op_rotate.c op_revrotate.c \
+		sort_stacks.c sort_getter.c sort_utils.c sort_algo.c sort_set_prices.c sort_move_fts.c pars_utils2.c
 OBJ = $(SRCS:.c=.o)
 LIBFT = libft
 LIBFTSRCS = $(addprefix $(LIBFT)/, ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \

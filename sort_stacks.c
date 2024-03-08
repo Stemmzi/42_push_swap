@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 22:02:37 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/28 21:09:34 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/08 17:54:40 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,6 @@ void	sort_stacks(t_list **stack_a, t_list **stack_b)
 		swap_a(stack_a);
 	else if (args == 3)
 		sort_three(stack_a);
-	else if (args == 4)
-		sort_four(stack_a, stack_b);
-	else if (args == 5)
-		sort_five(stack_a, stack_b);
 	else
 		sort_big(stack_a, stack_b);
 }
@@ -49,56 +45,11 @@ void	sort_three(t_list **stack_a)
 	}
 }
 
-void	sort_four(t_list **stack_a, t_list **stack_b)
-{
-	t_list	*four;
-	int		count;
-
-	count = 0;
-	push_b(stack_a, stack_b);
-	four = *stack_b;
-	sort_three(stack_a);
-	while (four->value > (*stack_a)->value && count < 3)
-	{
-		rotate_a(stack_a);
-		count++;
-	}
-	push_a(stack_a, stack_b);
-	while (count > 0)
-	{
-		revrotate_a(stack_a);
-		count--;
-	}
-}
-
-void	sort_five(t_list **stack_a, t_list **stack_b)
-{
-	t_list	*five;
-	int		count;
-
-	count = 0;
-	push_b(stack_a, stack_b);
-	five = *stack_b;
-	sort_four(stack_a, stack_b);
-	while (five->value > (*stack_a)->value && count < 4)
-	{
-		rotate_a(stack_a);
-		count++;
-	}
-	push_a(stack_a, stack_b);
-	while (count > 0)
-	{
-		revrotate_a(stack_a);
-		count--;
-	}
-}
-
 void	sort_big(t_list **stack_a, t_list **stack_b)
 {
-	int		median;
-
+	int	median;
+	
 	median = get_median(stack_a);
-	push_b(stack_a, stack_b);
 	while ((*stack_a)->next->next->next != NULL)
 	{
 		push_b(stack_a, stack_b);
@@ -108,9 +59,15 @@ void	sort_big(t_list **stack_a, t_list **stack_b)
 	sort_three(stack_a);
 	while (*stack_b != NULL)
 	{
-		price_stack(stack_a, stack_b);
-		sort_element(stack_a, stack_b, get_smallest_price(stack_b));
+		index_stacks(stack_a, stack_b);
+		price_stacks(stack_a, stack_b);
+		sort_one_element(stack_a, stack_b, get_cheapest_element(stack_b));
 	}
-	while (!is_sorted(stack_a))
-		rotate_a(stack_a);
+	index_stacks(stack_a, stack_b);
+	if (get_smallest_value(stack_a) * 2 > get_list_len(stack_a) + 1)
+		while (!is_sorted(stack_a))
+			revrotate_a(stack_a);
+	else
+		while (!is_sorted(stack_a))
+			rotate_a(stack_a);
 }
