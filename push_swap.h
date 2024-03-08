@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:32:04 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/03/08 17:46:32 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/08 17:50:08 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,22 @@ void	sort_big(t_list **stack_a, t_list **stack_b);
 // Sort utils getter
 int		get_list_len(t_list **stack);
 int		get_median(t_list **stack);
-int		get_smallest_price(t_list **stack_b);
+int		get_smallest_value(t_list **stack);
+int		get_cheapest_element(t_list **stack_b);
+
+// Sort utils setter
+void	price_stacks(t_list **stack_a, t_list **stack_b);
+void	set_target_pos(t_list **stack_a, t_list *pos);
+void	sort_one_element(t_list **stack_a, t_list **stack_b, int index);
+void	index_stacks(t_list **stack_a, t_list **stack_b);
 
 //Sort utils
-void	index_stack(t_list **stack_a, t_list **stack_b);
-void	price_stack(t_list **stack_a, t_list **stack_b);
-void	sort_element(t_list **stack_a, t_list **stack_b, int index);
+int		ft_abs(int a);
+int		ft_smaller_nbr(int a, int b);
+
+// Sort move functions
+void	move_a_b(t_list **stack_a, t_list **stack_b, t_list *head);
+void	move_a(t_list **stack_a, t_list *head);
+void	move_b(t_list **stack_b, t_list *head);
 
 #endif

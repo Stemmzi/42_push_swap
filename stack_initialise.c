@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 22:04:59 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/27 17:54:12 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/08 17:48:43 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ int	create_stacks(t_list **stack_a, int argc, char *argv[])
 	t_list	*temp;
 
 	count = 1;
+	if (argc < 0)
+	{
+		argc = argc * -1;
+		count = 0;
+	}
 	while (count < argc)
 	{
 		temp = nodenew(ft_atoi(argv[count]));
