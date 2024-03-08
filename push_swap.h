@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:32:04 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/03/08 17:44:20 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/08 17:46:32 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		lstsize(t_list *lst);
 int		is_numeric(int argc, char *argv[], int startpos);
 int		is_int(int argc, char *argv[], int startpos);
 int		is_unique(int argc, char *argv[], int startpos);
-void	is_arg_valid(int argc, char *argv[]);
+void	is_arg_valid(t_list **stack_a, int argc, char *argv[]);
 
 // Stack creation
 int		create_stacks(t_list **stack_a, int argc, char *argv[]);
