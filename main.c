@@ -6,11 +6,37 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 21:10:38 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/28 23:58:32 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/08 17:44:10 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	show_stacks(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*temp_a;
+	t_list	*temp_b;
+
+	temp_a = *stack_a;
+	temp_b = *stack_b;
+	while (temp_a != NULL || temp_b != NULL)
+	{
+		if (temp_a == NULL)
+			printf("-");
+		else
+		{
+			printf("%d", temp_a->value);
+			temp_a = temp_a->next;
+		}
+		if (temp_b == NULL)
+			printf(" -\n");
+		else
+		{
+			printf(" - %d\n", temp_b->value);
+			temp_b = temp_b->next;
+		}
+	}
+}
 
 int	main(int argc, char *argv[])
 {

@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:32:04 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/03/08 17:41:23 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/08 17:44:20 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	is_arg_valid(int argc, char *argv[]);
 // Stack creation
 int		create_stacks(t_list **stack_a, int argc, char *argv[]);
 int		is_sorted(t_list **stack);
+void	show_stacks(t_list **stack_a, t_list **stack_b);
 
 // Free and error
 void	free_stack(t_list **stack);
