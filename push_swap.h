@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:32:04 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/03/08 17:53:58 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/11 22:48:59 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		lstsize(t_list *lst);
 int		is_numeric(int argc, char *argv[], int startpos);
 int		is_int(int argc, char *argv[], int startpos);
 int		is_unique(int argc, char *argv[], int startpos);
-void	is_arg_valid(t_list **stack_a, int argc, char *argv[]);
+void	is_arg_valid(t_list **a, t_list **b, int argc, char *argv[]);
 
 // Stack creation
 int		create_stacks(t_list **stack_a, int argc, char *argv[]);
@@ -47,7 +47,8 @@ void	show_stacks(t_list **stack_a, t_list **stack_b);
 
 // Free and error
 void	free_stack(t_list **stack);
-void	ft_error(char *str);
+void	free_args(char	**ptr, int k);
+void	ft_error(char *str, t_list **stack_a, t_list **stack_b);
 
 // Swap operations
 void	swap(t_list **stack);
