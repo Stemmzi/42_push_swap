@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 18:38:11 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/03/06 18:48:57 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/11 18:43:13 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,8 @@
 void	move_a_b(t_list **stack_a, t_list **stack_b, t_list *head)
 {
 	int		both;
-	int		a;
-	int		b;
 
 	both = head->r_both;
-	a = head->r_a;
-	b = head->r_b;
 	while (both != 0)
 	{
 		if (both > 0)
@@ -38,13 +34,9 @@ void	move_a_b(t_list **stack_a, t_list **stack_b, t_list *head)
 
 void	move_a(t_list **stack_a, t_list *head)
 {
-	int		both;
 	int		a;
-	int		b;
 
-	both = head->r_both;
 	a = head->r_a;
-	b = head->r_b;
 	while (a != 0)
 	{
 		if (a > 0)
@@ -62,12 +54,8 @@ void	move_a(t_list **stack_a, t_list *head)
 
 void	move_b(t_list **stack_b, t_list *head)
 {
-	int		both;
-	int		a;
 	int		b;
 
-	both = head->r_both;
-	a = head->r_a;
 	b = head->r_b;
 	while (b != 0)
 	{

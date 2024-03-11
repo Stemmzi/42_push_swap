@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:26:41 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/03/07 00:31:21 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/11 18:43:31 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,8 @@ static void	is_arg_valid_argc2(t_list **stack_a, int argc, char *argv[])
 void	is_arg_valid(t_list **stack_a, int argc, char *argv[])
 {
 	int		startpos;
-	int		count;
 
 	startpos = 1;
-	count = 0;
 	if (argc == 2)
 		is_arg_valid_argc2(stack_a, argc, argv);
 	else

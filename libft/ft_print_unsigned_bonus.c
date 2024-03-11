@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:51:31 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/02/18 18:50:23 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/11 18:41:58 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ static unsigned int	uint_len(unsigned int n)
 		n = n / 10;
 		size++;
 	}
-	if (n < 0)
-		size++;
 	return (size);
 }
 
