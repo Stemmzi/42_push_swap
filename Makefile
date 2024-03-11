@@ -13,7 +13,7 @@ LIBFTSRCS = $(addprefix $(LIBFT)/, ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.
 		ft_printf_bonus.c)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-ARG = 
+ARG = r
 
 all: $(NAME)
 
@@ -30,7 +30,7 @@ libft.a:
 test: $(NAME)
 	@./$(NAME) $(ARG)
 
-debug:
+debug: fclean
 	$(CC) $(CFLAGS) -g $(LIBFTSRCS) $(SRCS) -o push_swap
 
 clean:

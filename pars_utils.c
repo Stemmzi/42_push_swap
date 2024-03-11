@@ -6,13 +6,13 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:26:41 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/03/11 22:48:13 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/11 23:34:20 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	is_arg_valid_argc2(t_list **a, t_list **b, int argc, char *argv[])
+static char	**is_arg_valid_argc2(t_list **a, int argc, char *argv[])
 {
 	char	**args;
 	int		startpos;
@@ -24,26 +24,37 @@ static void	is_arg_valid_argc2(t_list **a, t_list **b, int argc, char *argv[])
 	while (args[count])
 		count++;
 	if (count == 0)
-		ft_error("Error", a, b);
+		return(args);
 	argc = count;
 	startpos = 0;
 	if (!is_numeric(argc, args, startpos))
-		ft_error("Error", a, b);
+		return(args);
 	if (!is_int(argc, args, startpos))
-		ft_error("Error", a, b);
+		return(args);
 	if (!is_unique(argc, args, startpos))
-		ft_error("Error", a, b);
+		return(args);
 	create_stacks(a, -argc, args);
 	free_args(args, argc);
+	return (NULL);
 }
 
 void	is_arg_valid(t_list **a, t_list **b, int argc, char *argv[])
 {
+	char	**args;
 	int		startpos;
 
 	startpos = 1;
 	if (argc == 2)
-		is_arg_valid_argc2(a, b, argc, argv);
+	{
+		args = is_arg_valid_argc2(a, argc, argv);
+		if (args != NULL)
+		{
+			while (args[argc])
+				argc++;
+			free_args(args, argc);
+			ft_error("Error", a, b);
+		}
+	}
 	else
 	{
 		if (!is_numeric(argc, argv, startpos))

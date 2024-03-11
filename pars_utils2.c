@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:46:53 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/03/07 00:44:30 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/11 22:57:56 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ int	is_numeric(int argc, char *argv[], int count)
 		if (argv[count][c] == '\0')
 			return (0);
 		if (argv[count][c] == '-' || argv[count][c] == '+')
+		{
 			if (!ft_isdigit(argv[count][c + 1]))
 				return (0);
-		c++;
+			c++;
+		}
 		while (argv[count][c] != '\0' && ft_isdigit(argv[count][c]))
 			c++;
 		if (argv[count][c] != '\0')
