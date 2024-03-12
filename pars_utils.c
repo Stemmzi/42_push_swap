@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:26:41 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/03/11 23:34:20 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/12 18:34:24 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ static char	**is_arg_valid_argc2(t_list **a, int argc, char *argv[])
 	while (args[count])
 		count++;
 	if (count == 0)
-		return(args);
+		return (args);
 	argc = count;
 	startpos = 0;
 	if (!is_numeric(argc, args, startpos))
-		return(args);
+		return (args);
 	if (!is_int(argc, args, startpos))
-		return(args);
+		return (args);
 	if (!is_unique(argc, args, startpos))
-		return(args);
+		return (args);
 	create_stacks(a, -argc, args);
 	free_args(args, argc);
 	return (NULL);
