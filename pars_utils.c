@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:26:41 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/03/12 18:42:03 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/13 22:27:16 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	is_arg_valid(t_list **a, t_list **b, int argc, char *argv[])
 		args = is_arg_valid_argc2(a, argc, argv);
 		if (args != NULL)
 		{
-			while (args[argc])
+			while (args[argc - 1])
 				argc++;
 			free_args(args, argc - 1);
 			ft_error("Error", a, b);
