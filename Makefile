@@ -13,12 +13,12 @@ LIBFTSRCS = $(addprefix $(LIBFT)/, ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.
 		ft_printf_bonus.c)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-ARG = r
+ARG = 
 
 all: $(NAME)
 
 $(NAME): libft.a $(OBJ)
-	$(CC) $(CFLAGS) -g $(OBJ) libft.a -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) libft.a -o $(NAME)
 
 libft.a:
 	@make -C libft
@@ -27,7 +27,7 @@ libft.a:
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-test: $(NAME)
+test: fclean $(NAME)
 	@./$(NAME) $(ARG)
 
 debug: fclean
@@ -44,4 +44,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all test debug clean fclean re
+.PHONY: all libft.a test debug clean fclean re
