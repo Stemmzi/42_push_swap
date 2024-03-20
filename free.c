@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:36:38 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/03/11 22:52:26 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/20 17:24:31 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void	free_args(char	**ptr, int k)
 
 void	ft_error(char *str, t_list **stack_a, t_list **stack_b)
 {
-	ft_printf("%s\n", str);
+	write(STDERR_FILENO, str, ft_strlen(str));
+	write(STDERR_FILENO, "\n", 1);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	exit(0);
