@@ -2,8 +2,9 @@ NAME = push_swap
 SRCS = main.c lst_utils.c pars_utils.c stack_initialise.c free.c op_swap.c op_push.c op_rotate.c op_revrotate.c \
 		sort_stacks.c sort_getter.c sort_utils.c sort_algo.c sort_set_prices.c sort_move_fts.c pars_utils2.c
 OBJ = $(SRCS:.c=.o)
-LIBFT = libft
-LIBFTSRCS = $(addprefix $(LIBFT)/, ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
+LIBFT = libft.a
+LIBFTPREFIX = libft
+LIBFTSRCS = $(addprefix $(LIBFTPREFIX)/, ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 		ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c ft_strlcat.c \
 		ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c \
 		ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c  \
@@ -13,14 +14,14 @@ LIBFTSRCS = $(addprefix $(LIBFT)/, ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.
 		ft_printf_bonus.c)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-ARG = 
+ARG = "3 2 1"
 
 all: $(NAME)
 
-$(NAME): libft.a $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) libft.a -o $(NAME)
+$(NAME): $(LIBFT) $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
-libft.a:
+$(LIBFT):
 	@make -C libft
 	@cp libft/libft.a .
 
@@ -39,9 +40,9 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f libft.a
+	rm -f $(LIBFT)
 	@make -C libft fclean
 
 re: fclean all
 
-.PHONY: all libft.a test debug clean fclean re
+.PHONY: all test debug clean fclean re
