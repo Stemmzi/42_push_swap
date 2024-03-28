@@ -6,7 +6,7 @@
 /*   By: sgeiger <sgeiger@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 21:10:38 by sgeiger           #+#    #+#             */
-/*   Updated: 2024/03/11 22:49:40 by sgeiger          ###   ########.fr       */
+/*   Updated: 2024/03/28 17:08:35 by sgeiger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,11 @@ int	main(int argc, char *argv[])
 	t_list	**stack_b;
 
 	stack_a = (t_list **)malloc(sizeof(t_list *));
+	if (stack_a == NULL)
+		return (0);
 	stack_b = (t_list **)malloc(sizeof(t_list *));
+	if (stack_a == NULL)
+		return (0);
 	*stack_a = NULL;
 	*stack_b = NULL;
 	is_arg_valid(stack_a, stack_b, argc, argv);
